@@ -23,7 +23,6 @@ class ListProductController extends Controller
 
     public function store(Request $request)
     {
-        //var_dump($request->all()['image']);
         $data = array();
         $nameFile = null;
         if ($request->hasFile('image')) {
@@ -35,8 +34,6 @@ class ListProductController extends Controller
             $request->image->storeAs('products', $nameFile);
             $requestData = $request->all();
             $requestData['image'] = $nameFile;
-            //$request->merge(['image' => $nameFile]);
-            //var_dump($requestData);
         }
         try {
             $listProduct = $requestData;
